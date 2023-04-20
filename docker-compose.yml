@@ -1,0 +1,28 @@
+version: '2'
+services:
+
+
+
+
+
+  #mongodb service
+  social-mongo:
+    container_name: social-mongo
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo-social-vol:/data/db
+    networks:
+      - social-network
+
+
+volumes:
+  mongo-social-vol:
+    driver: local
+
+
+networks:
+  social-network:
+    driver: bridge
+
